@@ -17,7 +17,9 @@
         </activity>
         <activity android:name=".loading" />
         <activity android:name=".ClubSelector" />
-        <activity android:name=".RegistrationActivity"></activity>
+        <activity android:name=".RegistrationActivity" />
+        <activity android:name=".EventSelector" />
+        <activity android:name=".EventDescription"></activity>
     </application>
 
 </manifest>
