@@ -24,7 +24,8 @@ public class ClubSelector extends AppCompatActivity {
 
     Club[] cA;
     public String CLUB_NAME="club_name";
-    public String CLUB_OBJ="club_object";
+    public String EVENT_NAMES="event_names";
+    public String EVENT_DATES="event_dates";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,8 +37,8 @@ public class ClubSelector extends AppCompatActivity {
         event1.setEventName("Вечеринка 1");
 
         Event event2=new Event();
-        event1.setEventDate(new Date(2016,12,25,17,0));
-        event1.setEventName("Вечеринка 2");
+        event2.setEventDate(new Date(2016,12,25,17,0));
+        event2.setEventName("Вечеринка 2");
 
         Club club1=new Club();
         club1.setName("M5");
@@ -63,9 +64,17 @@ public class ClubSelector extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position,
                                     long id) {
+                String cN=clubArray[position];
+                String []evNames=new String[cA[position].getEventArray().length];
+                String[] evDates=new String[cA[position].getEventArray().length];
+                for(int i=0;i<cA[position].getEventArray().length;i++) {
+                    evNames[i]=cA[position].getEventArray()[i].getEventName();
+                    evDates[i]=cA[position].getEventArray()[i].getEventDate().toString();
+                }
                 Intent eventSelect = new Intent(ClubSelector.this, EventSelector.class);
                 eventSelect.putExtra(CLUB_NAME,clubArray[position]);
-                eventSelect.putExtra(CLUB_OBJ,cA[position]);
+                eventSelect.putExtra(EVENT_NAMES,evNames);
+                eventSelect.putExtra(EVENT_DATES,evDates);
                 startActivity(eventSelect);
             }
         });

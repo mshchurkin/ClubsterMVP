@@ -14,44 +14,38 @@ import java.util.List;
 
 public class EventSelector extends AppCompatActivity {
 
-    public Club cOBJ;
     public String cN;
+    String []evNames;
+    String[] evDates;
     public String CLUB_NAME="club_name";
-    public String CLUB_OBJ="club_object";
-    public String EVENT_DATE="event_date";
+    public String EVENT_NAMES="event_names";
+    public String EVENT_DATES="event_dates";
     public String EVENT_NAME="event_name";
+    public String EVENT_DATE="event_date";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_event_selector);
         Intent intent=getIntent();
-        cOBJ=(Club)intent.getSerializableExtra(CLUB_OBJ);
-        cN=cOBJ.getName();
+        cN=intent.getStringExtra(CLUB_NAME);
+        evNames=intent.getStringArrayExtra(EVENT_NAMES);
+        evDates= intent.getStringArrayExtra(EVENT_DATES);
         setTitle(cN);
 
-        Event[] eventArray=cOBJ.getEventArray();
-        final String[] eventNames=new String[eventArray.length];
-        for(int i=0;i<cOBJ.getEventArray().length;i++){
-            eventNames[i]=eventArray[i].getEventName();
-        }
-        final Date[] eventDates=new Date[cOBJ.getEventArray().length];
-        for(int i=0;i<cOBJ.getEventArray().length;i++){
-            eventDates[i]=cOBJ.getEventArray()[i].getEventDate();
-        }
         ListView lv=(ListView) findViewById(R.id.eventlist);
-        ArrayAdapter<String> arrayAdapter=new ArrayAdapter<String>(this,R.layout.support_simple_spinner_dropdown_item,eventNames);
+        ArrayAdapter<String> arrayAdapter=new ArrayAdapter<String>(this,R.layout.support_simple_spinner_dropdown_item,evNames);
         lv.setAdapter(arrayAdapter);
 
-//        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(AdapterView<?> parent, View view, int position,
-//                                    long id) {
-//                Intent intent = new Intent(EventSelector.this, EventDescription.class);
-//                intent.putExtra(CLUB_NAME, cN);
-//                intent.putExtra(EVENT_NAME,eventNames[position]);
-//                intent.putExtra(EVENT_DATE,eventDates[position]);
-//                startActivity(intent);
-//            }
-//        });
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position,
+                                    long id) {
+                Intent intent = new Intent(EventSelector.this, EventDescription.class);
+                intent.putExtra(CLUB_NAME, cN);
+                intent.putExtra(EVENT_NAME,evNames[position]);
+                intent.putExtra(EVENT_DATE,evDates[position]);
+                startActivity(intent);
+            }
+        });
     }
 }
