@@ -37,7 +37,7 @@ public class ClubSelector extends AppCompatActivity {
         event1.setEventName("Вечеринка 1");
 
         Event event2=new Event();
-        event2.setEventDate(new Date(2016,12,25,17,0));
+        event2.setEventDate(new Date(2016,12,25,17,45));
         event2.setEventName("Вечеринка 2");
 
         Club club1=new Club();

@@ -14,12 +14,83 @@
         android:text="Заведение"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:id="@+id/clNameLogo"
+        android:textAlignment="viewStart"
+        android:textSize="24sp"
+        android:textStyle="normal|bold"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="28dp"
-        android:id="@+id/textView2"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="27dp"
+        android:id="@+id/evName"
+        android:textSize="18sp"
+        android:textAlignment="viewStart"
+        android:layout_below="@+id/evNameLogo"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:id="@+id/clName"
+        android:textSize="18sp"
+        android:textAlignment="viewStart"
+        android:layout_below="@+id/clNameLogo"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:text="Событие"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:id="@+id/evNameLogo"
+        android:textSize="24sp"
+        android:textAlignment="viewStart"
+        android:textStyle="normal|bold"
+        android:layout_below="@+id/clName"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:text="Время"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/evName"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:textAlignment="center" />
+        android:layout_marginTop="51dp"
+        android:id="@+id/evDateLogo"
+        android:textSize="24sp"
+        android:textStyle="normal|bold"
+        android:textAlignment="viewStart" />
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/evDateLogo"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="31dp"
+        android:id="@+id/evDate"
+        android:textSize="18sp" />
+
+    <Button
+        android:text="OK"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="34dp"
+        android:id="@+id/okBtn"
+        android:background="@drawable/roundedbutton"
+        android:onClick="finish" />
 </RelativeLayout>
